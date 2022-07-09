@@ -12,7 +12,10 @@ const AllRoutes = () => {
         <Routes>
           <Route path="/" element={<Pokemon />} />
           <Route path="/my-pokemon" element={<MyPokemon />} />
-          <Route path="/pokemon-details" element={<PokemonDetails />} />
+          <Route
+            path="/pokemon-details/:id/:name"
+            element={<PokemonDetails />}
+          />
         </Routes>
       </Router>
     </div>
