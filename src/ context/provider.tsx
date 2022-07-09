@@ -6,12 +6,13 @@ import actions from "./action";
 import PokemonContext from "./context";
 import { IState } from "./types";
 
-const ContactContextProvider = (props: { children: any }) => {
+const PokemonContextProvider = (props: { children: any }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const value = {
     myPokemons: state.myPokemon,
     addPokemon: (value: IState) => {
+      console.log("ADD POKEMON");
       dispatch({ type: actions.ADD_POKEMON, payload: { myPokemon: [value] } });
     },
     removePokemon: (value: IState) => {
@@ -29,4 +30,4 @@ const ContactContextProvider = (props: { children: any }) => {
   );
 };
 
-export default ContactContextProvider;
+export default PokemonContextProvider;

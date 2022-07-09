@@ -53,14 +53,14 @@ const Pokemon = () => {
   }, [isScrolling]);
 
   return (
-    <>
+    <div className={classes.container}>
       <div className={classes.title}>Pokemons</div>
       <div className={classes.list}>
         {data.map((pokemon: IPokemon, index: number) => {
           return <SinglePokemon key={index} {...pokemon} />;
         })}
       </div>
-    </>
+    </div>
   );
 };
 

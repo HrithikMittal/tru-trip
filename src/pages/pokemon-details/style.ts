@@ -89,6 +89,8 @@ export const getStyles = () => ({
     padding: 30px;
     font-size: 17px;
     font-weight: 600;
+    text-align: center;
+    justify-content: center;
   `,
   info: css`
     display: flex;
