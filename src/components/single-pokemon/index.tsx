@@ -33,7 +33,11 @@ const SinglePokemon = (props: IPokemon | IState) => {
   const classes = getStyles();
   return (
     <div className={classes.container} data-testid={"list-container"}>
-      <div className={classes.img} onClick={handleClick}>
+      <div
+        className={classes.img}
+        onClick={handleClick}
+        data-testid={"list-container-click"}
+      >
         <img
           src={
             id

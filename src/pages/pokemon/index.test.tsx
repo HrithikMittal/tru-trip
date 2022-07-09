@@ -3,8 +3,9 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import Pokemon from "./index";
 import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
-const queryClient = new QueryClient();
+import userEvent from "@testing-library/user-event";
 
+const queryClient = new QueryClient();
 const MockPokemon = () => {
   return (
     <QueryClientProvider client={queryClient}>
@@ -40,11 +41,20 @@ describe("List Testing", () => {
     const lastItem = _allList[_allList.length - 1];
 
     fireEvent.scroll(lastItem, { target: { scrollY: 10000 } });
-
     const allTextsAfterScrolling = await screen.findAllByTestId(
       "list-container"
     );
 
     expect(_allList.length + allTextsAfterScrolling.length).toBe(40); // API fetch 40 pokemons at the time
+  });
+
+  it("on click", async () => {
+    render(<MockPokemon />);
+
+    const _allList = await screen.findAllByTestId("list-container-click");
+    const firstElement = _allList[0];
+    await userEvent.click(firstElement);
+
+    console.log(window.location.href);
   });
 });
