@@ -12,12 +12,15 @@ const MyPokemon = () => {
     <div className={classes.container}>
       <div className={classes.title}>My Pokemons</div>
       <div className={classes.list}>
-        {myPokemons?.map((pokemon: IState, index: number) => {
-          return <SinglePokemon key={index} {...pokemon} isRemove />;
-        })}
+        {myPokemons?.length === 0 ? (
+          <div className={classes.empty}>"You don't have any pokemons yet"</div>
+        ) : (
+          myPokemons?.map((pokemon: IState, index: number) => {
+            return <SinglePokemon key={index} {...pokemon} isRemove />;
+          })
+        )}
       </div>
     </div>
   );
 };
-
 export default MyPokemon;

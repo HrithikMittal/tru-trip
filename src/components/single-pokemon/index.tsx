@@ -8,17 +8,17 @@ import PokemonContext from "../../context/context";
 
 const SinglePokemon = (props: IPokemon | IState) => {
   const { name, url, id, isRemove, nickName } = props;
-
   const history = useNavigate();
   const { removePokemon } = useContext(PokemonContext);
 
   const handleClick = () => {
     if (id) {
       history(`/pokemon-details/${id}/${name}`);
+    } else {
+      history(
+        `/pokemon-details/${url.split("/")[url.split("/").length - 2]}/${name}`
+      );
     }
-    history(
-      `/pokemon-details/${url.split("/")[url.split("/").length - 2]}/${name}`
-    );
   };
 
   const handleRemove = () => {
@@ -32,8 +32,8 @@ const SinglePokemon = (props: IPokemon | IState) => {
 
   const classes = getStyles();
   return (
-    <div className={classes.container} onClick={handleClick}>
-      <div className={classes.img}>
+    <div className={classes.container}>
+      <div className={classes.img} onClick={handleClick}>
         <img
           src={
             id

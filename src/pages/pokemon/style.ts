@@ -22,4 +22,13 @@ export const getStyles = () => ({
     margin: 50px 0px 0px;
     background-image: linear-gradient(#162136, #314157, #3a4960);
   `,
+  empty: css`
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 25px;
+    padding: 100px;
+  `,
 });
