@@ -12,7 +12,6 @@ const PokemonContextProvider = (props: { children: any }) => {
   const value = {
     myPokemons: state.myPokemon,
     addPokemon: (value: IState) => {
-      console.log("ADD POKEMON");
       dispatch({ type: actions.ADD_POKEMON, payload: { myPokemon: [value] } });
     },
     removePokemon: (value: IState) => {

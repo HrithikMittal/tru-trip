@@ -2,6 +2,7 @@ import { css } from "@emotion/css";
 
 export const getStyles = () => ({
   container: css`
+    height: 100vh;
     background-image: linear-gradient(#162136, #314157, #3a4960);
   `,
   title: css`

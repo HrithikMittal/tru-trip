@@ -7,6 +7,8 @@ export interface IState {
   name: string;
   id: string;
   nickName: string;
+  url: string;
+  isRemove?: boolean;
 }
 
 export interface IAction {

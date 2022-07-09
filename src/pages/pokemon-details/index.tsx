@@ -5,7 +5,7 @@ import { getPokemonDetails } from "../../utils/apis";
 import { IMAGE_URL } from "../../config";
 import { getStyles } from "./style";
 import { IPokemon } from "@src/utils/types";
-import PokemonContext from "../../ context/context";
+import PokemonContext from "../../context/context";
 import NicknamePopover from "../../components/nickname-popover";
 
 const PokemonDetails = () => {
@@ -27,6 +27,7 @@ const PokemonDetails = () => {
       id: id || "",
       name: name || "",
       nickName: nickName,
+      url: "",
     });
     setShowPopOver(false);
   };

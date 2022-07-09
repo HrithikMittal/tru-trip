@@ -1,6 +1,9 @@
 export interface IPokemon {
   name: string;
   url: string;
+  id: string;
+  isRemove: boolean;
+  nickName?: string;
 }
 
 export interface INickName {
