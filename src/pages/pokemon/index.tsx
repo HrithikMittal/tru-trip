@@ -5,10 +5,11 @@ import { useInfiniteQuery } from "react-query";
 import { useState } from "react";
 import SinglePokemon from "../../components/single-pokemon";
 import { getStyles } from "./style";
+import { useNavigate } from "react-router-dom";
 
 const Pokemon = () => {
   const classes = getStyles();
-
+  const history = useNavigate();
   const [data, setData] = useState<IPokemon[]>([]);
 
   const { hasNextPage, fetchNextPage } = useInfiniteQuery(
@@ -31,8 +32,6 @@ const Pokemon = () => {
         const queryString = lastPage.next.split("?")[1];
         return queryString;
       },
-      refetchOnWindowFocus: false,
-      refetchOnMount: false,
       retry: 3,
     }
   );
@@ -52,9 +51,19 @@ const Pokemon = () => {
     return () => window.removeEventListener("scroll", isScrolling);
   }, [isScrolling]);
 
+  const handleClick = () => {
+    history("/my-pokemon");
+  };
+
   return (
     <div className={classes.container}>
-      <div className={classes.title}>Pokemons</div>
+      <div className={classes.title}></div>
+      <div className={classes.title}>
+        <div className={classes.mTitle}> Pokemons</div>
+        <div className={classes.subTitle} onClick={handleClick}>
+          My Pokemons
+        </div>
+      </div>
       <div className={classes.list}>
         {data.map((pokemon: IPokemon, index: number) => {
           return <SinglePokemon key={index} {...pokemon} />;
