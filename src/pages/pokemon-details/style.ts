@@ -12,7 +12,20 @@ export const getStyles = () => ({
     color: white;
     text-align: center;
     padding: 10px 10px 10px;
+    display: flex;
+  `,
+  mTitle: css`
+    flex: 1;
+    display: flex;
+    justify-content: center;
     font-size: 25px;
+    padding-left: 10%;
+  `,
+  subTitle: css`
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
   `,
   imgContainer: css`
     background-color: #ffddb7;

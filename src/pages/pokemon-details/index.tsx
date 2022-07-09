@@ -7,10 +7,12 @@ import { getStyles } from "./style";
 import { IPokemon } from "@src/utils/types";
 import PokemonContext from "../../context/context";
 import NicknamePopover from "../../components/nickname-popover";
+import { useNavigate } from "react-router-dom";
 
 const PokemonDetails = () => {
   const params = useParams();
   const classes = getStyles();
+  const history = useNavigate();
   const [nickName, setNickName] = useState("");
   const [showPopOver, setShowPopOver] = useState(false);
 
@@ -36,6 +38,10 @@ const PokemonDetails = () => {
     setShowPopOver(true);
   };
 
+  const handleClick = () => {
+    history("/my-pokemon");
+  };
+
   return (
     <>
       {showPopOver && (
@@ -47,7 +53,12 @@ const PokemonDetails = () => {
         />
       )}
       <div className={classes.container}>
-        <div className={classes.title}>Pokemon Details</div>
+        <div className={classes.title}>
+          <div className={classes.mTitle}> Pokemon Details</div>
+          <div className={classes.subTitle} onClick={handleClick}>
+            My Pokemons
+          </div>
+        </div>
         <div className={classes.card}>
           <div className={classes.imgContainer}>
             <img

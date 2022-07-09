@@ -57,14 +57,13 @@ const Pokemon = () => {
 
   return (
     <div className={classes.container}>
-      <div className={classes.title}></div>
       <div className={classes.title}>
         <div className={classes.mTitle}> Pokemons</div>
         <div className={classes.subTitle} onClick={handleClick}>
           My Pokemons
         </div>
       </div>
-      <div className={classes.list}>
+      <div className={classes.list} data-testid={"list-outer-container"}>
         {data.map((pokemon: IPokemon, index: number) => {
           return <SinglePokemon key={index} {...pokemon} />;
         })}

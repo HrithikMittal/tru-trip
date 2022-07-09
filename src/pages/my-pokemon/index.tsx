@@ -22,7 +22,7 @@ const MyPokemon = () => {
           All Pokemons
         </div>
       </div>
-      <div className={classes.list}>
+      <div className={classes.pokemonList}>
         {myPokemons?.length === 0 ? (
           <div className={classes.empty}>"You don't have any pokemons yet"</div>
         ) : (
