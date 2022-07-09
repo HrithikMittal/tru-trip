@@ -9,14 +9,11 @@ import { IPokemon } from "@src/utils/types";
 const PokemonDetails = () => {
   const params = useParams();
   const classes = getStyles();
-  console.log("params", params);
 
   const { data } = useQuery(`pokemon-${params.name}`, async () => {
     const pokemon = await getPokemonDetails(params.name || "");
     return pokemon;
   });
-
-  console.log("data", data);
 
   return (
     <div className={classes.container}>
@@ -27,6 +24,7 @@ const PokemonDetails = () => {
             src={`${IMAGE_URL}${params.id}.png`}
             width="100px"
             height="100px"
+            alt={params.name}
           />
         </div>
         <div className={classes.name}>
